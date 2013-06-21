@@ -15,7 +15,16 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+#Comment each 'DATABASES' line depending on local dev o not
+#Heroku
 DATABASES =  {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+#Local settings
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': 'mydatabase'
+#    }
+#}
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -164,6 +173,7 @@ INSTALLED_APPS = (
 	'cms.plugins.video',
 	'cms.plugins.twitter',
 	'storages',
+	'django_admin_bootstrapped',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
