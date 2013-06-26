@@ -173,7 +173,6 @@ INSTALLED_APPS = (
 	'cms.plugins.video',
 	'cms.plugins.twitter',
 	'storages',
-	'django_admin_bootstrapped',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
