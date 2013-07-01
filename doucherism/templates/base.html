@@ -1,14 +1,31 @@
 {% load cms_tags sekizai_tags %}
 <html>
   <head>
-      {% render_block "css" %}
-      <link href="media/static/css/foundation.css" rel="stylesheet" type="text/css" media="screen" />
-      <link href="media/static/css/normalize.css" rel="stylesheet" type="text/css" media="screen" />
+      {% render_block "css" %}        
+      <!-- CSS Section -->
+        <link href="/media/static/css/foundation.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="/media/static/css/normalize.css" rel="stylesheet" type="text/css" media="screen" />
+
+        <!-- JS Section -->
+        <script src="/media/static/js/vendor/custom.modernizr.js"></script>
+        <script src="/media/static/js/foundation.min.js"></script>
+        <script src="/media/static/js/foundation/foundation.topbar.js"></script>
   </head>
   <body>
-      {% cms_toolbar %}
-      {% placeholder base_content %}
-      {% block base_content %}{% endblock %}
-      {% render_block "js" %}
-  </body>
+    {% include "header.html"%} {% comment %} This is used to import the navigation bar {% endcomment %}
+    {% cms_toolbar %}
+    {% placeholder base_content %}
+    {% block base_content %}{% endblock %}
+    {% render_block "js" %}        
+     
+    <!-- Check for Zepto support, load jQuery if necessary -->
+    <script>
+        document.write('<script src=/media/static/js/vendor/'
+        + ('__proto__' in {} ? 'zepto' : 'jquery')
+        + '.js><\/script>');
+    </script>
+    </body>
+    <script>
+          $(document).foundation();
+      </script>
 </html>
