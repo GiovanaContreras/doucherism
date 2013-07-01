@@ -17,14 +17,14 @@ MANAGERS = ADMINS
 
 #Comment each 'DATABASES' line depending on local dev o not
 #Heroku
-DATABASES =  {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+#DATABASES =  {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 #Local settings
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': 'mydatabase'
-#    }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase'
+    }
+}
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -63,7 +63,7 @@ MEDIA_ROOT = ''
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -138,7 +138,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	os.path.join(PROJECT_PATH, "templates"),
+    os.path.join(PROJECT_PATH, "templates"),
 )
 
 CMS_TEMPLATES = (
